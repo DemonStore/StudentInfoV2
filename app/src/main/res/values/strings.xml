@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">StudentInfoV2</string>
+
+    <string name="student_list_title">List of students</string>
+    <string name="student_edit_title">Edit information</string>
+    <string name="student_add_title">Add entry</string>
+
+    <string name="student_name_label">Name</string>
+    <string name="student_faculty_label">Faculty</string>
+    <string name="student_number_label">Number</string>
+    <string name="student_email_label">Email</string>
+    <string name="student_name_hint">Enter name of student</string>
+    <string name="student_faculty_hint">Enter faculty of student</string>
+    <string name="student_number_hint">Enter number of student</string>
+    <string name="student_email_hint">Enter email of student</string>
+    <string name="student_confirm_button">Confirm</string>
+
+    <string name="action_add_student">Add</string>
+
+</resources>
