@@ -17,6 +17,8 @@
     <string name="student_email_hint">Enter email of student</string>
     <string name="student_confirm_button">Confirm</string>
 
+    <string name="message_empty_list">No entries</string>
+
     <string name="action_add_student">Add</string>
 
 </resources>

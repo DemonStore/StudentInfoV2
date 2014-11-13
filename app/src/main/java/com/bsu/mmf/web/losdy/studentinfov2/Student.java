@@ -1,23 +1,21 @@
 package com.bsu.mmf.web.losdy.studentinfov2;
 
-import java.util.UUID;
-
 /**
  * Created by DemonStore on 24.10.2014.
  */
 public class Student {
-    private UUID mId;
+    private long mId;
     private String name;
     private String faculty;
     private String number;
     private String email;
 
-    public Student() {
-        mId = UUID.randomUUID();
+    public long getId() {
+        return mId;
     }
 
-    public UUID getId() {
-        return mId;
+    public void setId(long id) {
+        mId = id;
     }
 
     public String getName() {

@@ -10,13 +10,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.UUID;
-
 /**
  * Created by DemonStore on 24.10.2014.
  */
 public class StudentFragment extends Fragment {
-    public static final String EXTRA_STUDENT_ID = "com.bsu.mmf.web.losdy.criminalintent.student_id";
+    public static final String EXTRA_STUDENT_ID = "com.bsu.mmf.web.losdy.studentinfov2.student_id";
 
     private Student mStudent;
 
@@ -26,9 +24,9 @@ public class StudentFragment extends Fragment {
     private EditText mEmailField;
     private Button mConfirmButton;
 
-    public static StudentFragment newInstance(UUID studentId) {
+    public static StudentFragment newInstance(long studentId) {
         Bundle args = new Bundle();
-        args.putSerializable(EXTRA_STUDENT_ID, studentId);
+        args.putLong(EXTRA_STUDENT_ID, studentId);
         StudentFragment fragment = new StudentFragment();
         fragment.setArguments(args);
         return fragment;
@@ -38,12 +36,12 @@ public class StudentFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            UUID studentId = (UUID)getArguments().getSerializable(EXTRA_STUDENT_ID);
+            long studentId = getArguments().getLong(EXTRA_STUDENT_ID);
             mStudent = StudentLab.get(getActivity()).getStudent(studentId);
         } else {
-            mStudent = new Student();
-            StudentLab.get(getActivity()).getStudents().add(mStudent);
+            mStudent = StudentLab.get(getActivity()).insertStudent();
         }
+
     }
 
     @Override
@@ -136,5 +134,11 @@ public class StudentFragment extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        StudentLab.get(getActivity()).updateStudent(mStudent);
     }
 }
