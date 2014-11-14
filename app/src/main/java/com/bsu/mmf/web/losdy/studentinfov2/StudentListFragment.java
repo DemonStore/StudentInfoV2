@@ -48,6 +48,7 @@ public class StudentListFragment extends ListFragment {
     }
 
     StudentDatabaseHelper.StudentCursor mCursor;
+    StudentCursorAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,8 +56,8 @@ public class StudentListFragment extends ListFragment {
 
         mCursor = StudentLab.get(getActivity()).queryStudents();
 
-        StudentCursorAdapter adapter = new StudentCursorAdapter(getActivity(), mCursor);
-        setListAdapter(adapter);
+        mAdapter = new StudentCursorAdapter(getActivity(), mCursor);
+        setListAdapter(mAdapter);
     }
 
     @Override
